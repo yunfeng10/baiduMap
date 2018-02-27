@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        $(function(){
+            var x=20;
+            var y=0;
+            $(".tooltiptt").mouseover(function(e){
+                this.myTitle=this.title;
+                this.title="";
+                var tooltipdi="<div id='tooltipdi'><span><b></b><em></em>"+this.myTitle+"</span></div>";
+                $("body").append(tooltipdi);
+
+                $("#tooltipdi").css(
+                    {
+                        "top": (e.pageY+y) + "px",
+                        "left": (e.pageX+x) + "px"
+                    }
+                ).show("fast");
+            }).mouseout(function(){
+                this.title=this.myTitle;
+                $("#tooltipdi").remove();
+            }).mousemove(function(e){
+                $("#tooltipdi").css({
+                    "top": (e.pageY+y) + "px",
+                    "left": (e.pageX+x) + "px"
+                });
+            });
+        })
+    </script>
+</head>
+<body>
+    <input type="text" name="tt" title="">
+</body>
+</html>
