@@ -17,6 +17,7 @@ public class AddByte {
         Connection conn = null;
         PreparedStatement ps = null;
         Class.forName(driver);
+
         conn = DriverManager.getConnection(url, username, password);
 
         String sql = "INSERT INTO tb_error_log (log_id,create_time,error_id,error_code,error_content) VALUES(?,?,?,?,?)";
